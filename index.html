@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EStreet IT Solution - E-Learning Platform</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(20, 30, 40, 0.7), rgba(20, 30, 40, 0.7)), url('https://placehold.co/1920x600/1E293B/FFFFFF?text=Learn+Anything');
+            background-size: cover;
+            background-position: center;
+        }
+        .modal-backdrop {
+            background-color: rgba(0,0,0,0.75);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white text-gray-800 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-extrabold text-blue-600">EStreet IT</a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:block flex-1 mx-8">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 A6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <input id="desktopSearch" class="block w-full bg-gray-100 border border-gray-300 rounded-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:outline-none focus:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="Search for anything" type="search">
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Categories</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Business</a>
+                    <button id="loginBtn" class="px-4 py-2 border border-gray-800 text-gray-800 font-bold rounded-md hover:bg-gray-100 transition-colors">Log In</button>
+                    <button id="signupBtn" class="px-4 py-2 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition-colors">Sign Up</button>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-gray-600 hover:text-blue-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg py-20 md:py-32">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Unlock Your Potential</h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-6">Learn the latest skills to reach your professional goals. Start your journey with us today.</p>
+                <!-- Search bar visible on mobile as well -->
+                <div class="relative mt-4">
+                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    <input id="mobileSearch" class="block w-full border border-gray-300 rounded-full py-3 pl-10 pr-3 text-gray-900 leading-5 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="What do you want to learn?" type="search">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">Students are viewing</h2>
+        
+        <!-- Courses Grid -->
+        <div id="coursesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            
+            <!-- Course Card 1: AI & ML -->
+            <div class="course-card group bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300" data-title="Artificial Intelligence & Machine Learning">
+                <div class="relative">
+                    <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=AI+%26+ML" alt="AI & ML Course" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-opacity flex items-center justify-center">
+                         <button data-video-id="VyWAvY2CF9c" class="play-video-btn text-white bg-blue-600 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform">
+                            <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                         </button>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-900 truncate">Artificial Intelligence & Machine Learning</h3>
+                    <p class="text-sm text-gray-600 mt-1">EStreet Instructors</p>
+                    <div class="flex items-center mt-2">
+                        <span class="text-yellow-500 font-bold">4.7</span>
+                        <!-- Star Icons -->
+                        <div class="flex ml-1 text-yellow-400">★★★★★</div>
+                        <span class="text-xs text-gray-500 ml-2">(1,250)</span>
+                    </div>
+                    <p class="text-xl font-extrabold text-gray-900 mt-2">Free</p>
+                </div>
+            </div>
+
+            <!-- Course Card 2: Data Science -->
+            <div class="course-card group bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300" data-title="Complete Data Science Bootcamp">
+                <div class="relative">
+                    <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Data+Science" alt="Data Science Course" class="w-full h-48 object-cover">
+                     <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-opacity flex items-center justify-center">
+                         <button data-video-id="9R3X0JoCLyU" class="play-video-btn text-white bg-green-600 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform">
+                            <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                         </button>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-900 truncate">Complete Data Science Bootcamp</h3>
+                    <p class="text-sm text-gray-600 mt-1">EStreet Instructors</p>
+                    <div class="flex items-center mt-2">
+                        <span class="text-yellow-500 font-bold">4.8</span>
+                        <div class="flex ml-1 text-yellow-400">★★★★★</div>
+                        <span class="text-xs text-gray-500 ml-2">(3,421)</span>
+                    </div>
+                    <p class="text-xl font-extrabold text-gray-900 mt-2">Free</p>
+                </div>
+            </div>
+
+            <!-- Course Card 3: DSA -->
+            <div class="course-card group bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300" data-title="Data Structures & Algorithms A-Z">
+                <div class="relative">
+                    <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=DSA" alt="DSA Course" class="w-full h-48 object-cover">
+                     <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-opacity flex items-center justify-center">
+                         <button data-video-id="37E9ckMDdTk" class="play-video-btn text-white bg-purple-600 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform">
+                            <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                         </button>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-900 truncate">Data Structures & Algorithms A-Z</h3>
+                    <p class="text-sm text-gray-600 mt-1">EStreet Instructors</p>
+                    <div class="flex items-center mt-2">
+                        <span class="text-yellow-500 font-bold">4.6</span>
+                        <div class="flex ml-1 text-yellow-400">★★★★★</div>
+                        <span class="text-xs text-gray-500 ml-2">(980)</span>
+                    </div>
+                    <p class="text-xl font-extrabold text-gray-900 mt-2">Free</p>
+                </div>
+            </div>
+            
+        </div>
+        <div id="noResults" class="hidden text-center text-gray-500 mt-8">
+            <p class="text-2xl font-bold">No courses found</p>
+            <p>Try adjusting your search.</p>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white pt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="font-bold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                        <li><a href="#" class="hover:text-white">Press</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <!-- Column 2 -->
+                 <div>
+                    <h3 class="font-bold mb-4">Community</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Learners</a></li>
+                        <li><a href="#" class="hover:text-white">Partners</a></li>
+                        <li><a href="#" class="hover:text-white">Developers</a></li>
+                        <li><a href="#" class="hover:text-white">Affiliates</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="font-bold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                 <div>
+                    <h3 class="font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 pb-6 text-center text-gray-400">
+                <p>&copy; 2025 EStreet IT Solution. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Player Modal -->
+    <div id="videoModal" class="fixed inset-0 z-50 flex items-center justify-center hidden modal-backdrop transition-opacity duration-300">
+        <div class="bg-black rounded-lg shadow-xl w-full max-w-4xl m-4 relative aspect-video">
+            <button id="closeVideo" class="absolute -top-2 -right-2 md:-top-4 md:-right-4 z-10 text-white bg-gray-800 rounded-full h-8 w-8 md:h-10 md:w-10 flex items-center justify-center text-2xl font-bold">&times;</button>
+            <div class="w-full h-full">
+                <iframe id="videoPlayer" class="w-full h-full rounded-lg" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center hidden modal-backdrop transition-opacity duration-300">
+        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md m-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Log In to Your Account</h2>
+                <button id="closeLogin" class="text-gray-500 hover:text-gray-800 font-bold text-2xl">&times;</button>
+            </div>
+            <form>
+                <div class="mb-4">
+                    <label for="loginEmail" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="loginEmail" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="mb-6">
+                    <label for="loginPassword" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="loginPassword" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md font-bold hover:bg-blue-700">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="fixed inset-0 z-50 flex items-center justify-center hidden modal-backdrop transition-opacity duration-300">
+        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md m-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Sign Up for EStreet IT</h2>
+                 <button id="closeSignup" class="text-gray-500 hover:text-gray-800 font-bold text-2xl">&times;</button>
+            </div>
+            <form>
+                 <div class="mb-4">
+                    <label for="signupName" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="signupName" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="signupEmail" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="signupEmail" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="mb-6">
+                    <label for="signupPassword" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="signupPassword" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md font-bold hover:bg-blue-700">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // --- Modal Handling ---
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const closeLoginBtn = document.getElementById('closeLogin');
+        const closeSignupBtn = document.getElementById('closeSignup');
+        
+        // --- Video Modal Handling ---
+        const videoModal = document.getElementById('videoModal');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const closeVideoBtn = document.getElementById('closeVideo');
+        const playVideoBtns = document.querySelectorAll('.play-video-btn');
+
+        function showModal(modal) {
+            modal.classList.remove('hidden');
+        }
+
+        function hideModal(modal) {
+            modal.classList.add('hidden');
+        }
+
+        // --- Event Listeners for Login/Signup ---
+        loginBtn.addEventListener('click', () => showModal(loginModal));
+        signupBtn.addEventListener('click', () => showModal(signupModal));
+        closeLoginBtn.addEventListener('click', () => hideModal(loginModal));
+        closeSignupBtn.addEventListener('click', () => hideModal(signupModal));
+        
+        // --- Event Listeners for Video Modal ---
+        playVideoBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const videoId = btn.dataset.videoId;
+                videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                showModal(videoModal);
+            });
+        });
+
+        closeVideoBtn.addEventListener('click', () => {
+            hideModal(videoModal);
+            // Stop the video from playing in the background
+            videoPlayer.src = '';
+        });
+
+        // --- Close Modals on Outside Click ---
+        window.addEventListener('click', (event) => {
+            if (event.target === loginModal) {
+                hideModal(loginModal);
+            }
+            if (event.target === signupModal) {
+                hideModal(signupModal);
+            }
+            if (event.target === videoModal) {
+                hideModal(videoModal);
+                // Stop the video from playing in the background
+                videoPlayer.src = '';
+            }
+        });
+
+        // --- Search Functionality ---
+        const desktopSearch = document.getElementById('desktopSearch');
+        const mobileSearch = document.getElementById('mobileSearch');
+        const courseCards = document.querySelectorAll('.course-card');
+        const noResults = document.getElementById('noResults');
+
+        function filterCourses(searchTerm) {
+            const lowerCaseSearchTerm = searchTerm.toLowerCase();
+            let resultsFound = false;
+
+            courseCards.forEach(card => {
+                const title = card.dataset.title.toLowerCase();
+                if (title.includes(lowerCaseSearchTerm)) {
+                    card.style.display = 'block';
+                    resultsFound = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (resultsFound) {
+                noResults.classList.add('hidden');
+            } else {
+                noResults.classList.remove('hidden');
+            }
+        }
+
+        desktopSearch.addEventListener('input', (e) => {
+            filterCourses(e.target.value);
+        });
+
+        mobileSearch.addEventListener('input', (e) => {
+            filterCourses(e.target.value);
+        });
+
+    </script>
+</body>
+</html>
+
